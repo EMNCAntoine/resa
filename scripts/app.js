@@ -72,7 +72,7 @@ msalInstance.loginPopup()
     .catch(error => {
         console.log(error);
     });
-    */
+    
    // Configuration de l'authentification
 const msalConfig = {
     auth: {
@@ -127,6 +127,32 @@ const msalConfig = {
   }).then(() => {
     getUserEvents();
   });
+  */
+  const config = {
+    auth: {
+      clientId: "a4b505ae-05f8-4199-871a-37cf40a1ecb7",
+      redirectUri: "https://emncantoine.github.io/resa/index.html", //defaults to application start page
+      postLogoutRedirectUri: "https://emncantoine.github.io/resa/index.html",
+    },
+  };
   
+  const loginRequest = {
+    scopes: ["User.ReadWrite"],
+  };
+  
+  let accountId = "";
+  
+  const myMsal = new PublicClientApplication(config);
+  
+  myMsal
+    .loginPopup(loginRequest)
+    .then(function (loginResponse) {
+      accountId = loginResponse.account.homeAccountId;
+      // Display signed-in user content, call API, etc.
+    })
+    .catch(function (error) {
+      //login failure
+      console.log(error);
+    });
 
 }
