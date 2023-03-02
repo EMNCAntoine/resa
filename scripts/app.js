@@ -43,7 +43,7 @@ function resa()
 const msalConfig = {
     auth: {
         clientId: 'a4b505ae-05f8-4199-871a-37cf40a1ecb7',
-        redirectUri: 'http://127.0.0.1:5500/index.html',
+        redirectUri: 'https://emncantoine.github.io/resa/index.html',
         authority: 'https://login.microsoftonline.com/ba18c5b0-7a13-44c1-97d2-9277ec61a255',
         scopes: ['User.Read', 'Calendars.Read']
     }
