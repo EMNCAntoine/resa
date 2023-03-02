@@ -148,7 +148,7 @@ const msalConfig = {
     .loginPopup(loginRequest)
     .then(function (loginResponse) {
       accountId = loginResponse.account.homeAccountId;
-      // Display signed-in user content, call API, etc.
+      console.log('Connexion OK')
     })
     .catch(function (error) {
       //login failure
