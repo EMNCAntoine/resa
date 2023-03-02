@@ -56,6 +56,7 @@ msalInstance.loginPopup()
         // Récupération des événements du calendrier
         const requestUrl = 'https://graph.microsoft.com/v1.0/me/events';
         const accessToken = authResponse.accessToken;
+        console.log(accessToken);
         const headers = new Headers({
             'Authorization': `Bearer ${accessToken}`
         });
