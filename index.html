@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Réservation de voiture</title>
+	<meta charset="UTF-8"></meta>
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	<link href="./img/EMNC-Logo.png" rel="icon">
+
+</head>
+<body>
+	<div class="global">
+	<table class="tableau">
+		<thead>
+			<tr>
+				<th colspan="2" class="aligner"><h1>Réservation de voiture</h1></th>
+			</tr>
+		</thead>
+		<tbody>
+			<form action="submit.php" method="post">
+			<tr>
+				<td><label for="nom">Nom<span class="etoile">*</span>:</label></td>
+				<td><input type="text" class="taille" id="nom" name="nom" required></td>
+			</tr>
+			<tr>
+				<td><label for="prenom">Prénom<span class="etoile">*</span>:</label></td>
+				<td><input type="text" class="taille" id="prenom" name="prenom" required></td>
+			</tr>
+			<tr>
+				<td><label for="email">Email<span class="etoile">*</span>:</label></td>
+				<td><input type="email" class="taille" id="email" name="email" required></td>
+			</tr>
+			<tr>
+				<td><label for="depart">Date et heure de départ<span class="etoile">*</span>:</br></label></td>
+				<td><input type="datetime-local" class="taille" id="depart" name="depart" required><br></td>
+			</tr>
+			<tr>
+				<td><label for="retour">Date et heure de retour<span class="etoile">*</span>:</br></label></td>
+				<td><input type="datetime-local" class="taille" id="retour" name="retour" required><br></td>
+			</tr>
+			<tr>
+				<td><label for="campus_depart">Campus de départ<span class="etoile">*</span>:</br></label></td>
+				<td>
+					<select id="campus_depart" class="taille" name="campus_depart" required>
+						<option value="Caen">Campus de Caen</option>
+						<option value="LH">Capus Le Havre</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="campus_depart">Lieu de destination<span class="etoile">*</span>:</br></label></td>
+				<td>
+					<select id="lieu_arrivee" class="taille" onchange="horsCampus()" name="lieu_arrivee" required>
+						<option value="Caen">Campus Caen</option>
+						<option value="LH">Campus Le Havre</option>
+						<option value="Paris">Campus Paris</option>
+						<option value="Hors campus">Hors campus</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+					<td><div id="label_adr_hc" style="display: none;"><label for="adr_hc">Addresse de dstination<span class="etoile">*</span>:</label></div></td>
+					<td><div id="input_adr_hc" style="display: none;"><input type="text" id="adr_hc2" name="adr_hc2"></div></td>
+			</tr>
+			<tr>
+				<td><label for="Passagers">Passagers :</label></td>
+				<td><input type="checkbox" name="pass_oui" value="oui" id="oui" onchange="afficherCase(this)"/><label for="oui">Oui</label></td>
+			</tr>
+			<tr>
+				
+					<td><div id="label_nom_pass" style="display: none;"><label for="nom">Nom des passagers :</label></div></td>
+					<td><div id="input_nom_pass" style="display: none;"><input type="text" id="nomP" name="nomP"></div></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" class="aligner"></br></br><input type="button" value="Réserver" onclick="resa()"></td>	
+			</tr>
+			</form>
+		</tbody>
+	</table>
+	<script type="text/javascript" src="https://alcdn.msauth.net/browser/2.33.0/js/msal-browser.js" integrity="sha384-xfWQjvZ0VzT5Zvno0SgkPatOmGBEbU8nBL9PyHta/UR299kguq6f5AdiT7i4njhQ" crossorigin="anonymous"></script>
+	<script src=".\scripts\app.js"></script>
+</div>
+</body>
+</html>

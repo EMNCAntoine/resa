@@ -1,0 +1,33 @@
+.tableau
+{
+    margin: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+body
+{
+    
+    color: aliceblue;
+}
+
+.aligner
+{
+    text-align: center;
+}
+
+.taille
+{
+    width: 150px;
+}
+
+.etoile
+{
+    color: crimson;
+}
+
+html
+{
+    font-size: large;
+    background-image: url("../img/EMNC.png");
+}
