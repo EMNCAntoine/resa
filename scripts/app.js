@@ -38,6 +38,7 @@ function horsCampus()
 
 function resa()
 {
+    /*
 
     // Initialisation de l'authentification
 const msalConfig = {
@@ -71,5 +72,61 @@ msalInstance.loginPopup()
     .catch(error => {
         console.log(error);
     });
+    */
+   // Configuration de l'authentification
+const msalConfig = {
+    auth: {
+      clientId: 'YOUR_CLIENT_ID',
+      redirectUri: 'YOUR_REDIRECT_URI',
+      authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID',
+    },
+    cache: {
+      cacheLocation: 'sessionStorage',
+      storeAuthStateInCookie: false,
+    },
+  };
+  const msalInstance = new msal.PublicClientApplication(msalConfig);
+  
+  // Récupération des événements du calendrier
+  const getUserEvents = async () => {
+    const account = msalInstance.getAccount();
+    if (!account) {
+      throw new Error('Aucun compte utilisateur n\'est connecté.');
+    }
+  
+    const tokenRequest = {
+      scopes: ['https://graph.microsoft.com/Calendars.Read'],
+      account: account,
+    };
+  
+    try {
+      const accessToken = await msalInstance.acquireTokenSilent(tokenRequest);
+      const eventsUrl = 'https://graph.microsoft.com/v1.0/users/abourgeois@emn-competences.fr/events';
+  
+      const response = await fetch(eventsUrl, {
+        headers: {
+          Authorization: `Bearer ${accessToken.accessToken}`,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Impossible de récupérer les événements.');
+      }
+  
+      const events = await response.json();
+      console.log(events.value);
+      // Utilisez les données d'événement pour afficher ou traiter les événements de l'utilisateur.
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  // Authentification de l'utilisateur
+  msalInstance.loginPopup({
+    scopes: ['User.Read'],
+  }).then(() => {
+    getUserEvents();
+  });
+  
 
 }
