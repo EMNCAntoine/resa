@@ -136,10 +136,17 @@ const msalConfig = {
     },
   };
   
+  const user = "abourgeois@emn-competences.fr";
+  const myaccount = msalInstance.getAccountByUsername(user);
+
   const loginRequest = {
     scopes: ["User.ReadWrite"],
+    account: myaccount
   };
-  
+
+  const loginResponse = msalInstance.ssoSilent(loginRequest);
+  console.log(loginResponse);
+/*
   let accountId = "";
   
   const myMsal = new PublicClientApplication(config);
@@ -154,5 +161,5 @@ const msalConfig = {
       //login failure
       console.log(error);
     });
-
+*/
 }
