@@ -38,7 +38,7 @@ function horsCampus()
 
 function resa()
 {
-    /*
+    
 
     // Initialisation de l'authentification
 const msalConfig = {
@@ -72,7 +72,7 @@ msalInstance.loginPopup()
     .catch(error => {
         console.log(error);
     });
-    
+ /*   
    // Configuration de l'authentification
 const msalConfig = {
     auth: {
@@ -127,7 +127,7 @@ const msalConfig = {
   }).then(() => {
     getUserEvents();
   });
-  */
+  
   const config = {
     auth: {
       clientId: "a4b505ae-05f8-4199-871a-37cf40a1ecb7",
