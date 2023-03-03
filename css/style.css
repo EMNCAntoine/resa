@@ -31,3 +31,9 @@ html
     font-size: large;
     background-image: url("../img/EMNC.png");
 }
+
+table
+{
+    border-radius: 20px;
+    background-color: aliceblue;
+}
