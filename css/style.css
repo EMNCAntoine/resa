@@ -3,12 +3,13 @@
     margin: auto;
     margin-right: auto;
     width: 500px;
+    
 }
 
 body
 {
     
-    color: Black;
+    color: black;
 }
 
 .aligner
@@ -35,5 +36,12 @@ html
 table
 {
     border-radius: 20px;
-    background-color: aliceblue;
+    background-color: azure;
+    border: 2px solid;
+    border-color:orange
+}
+
+label{
+    position: relative;
+    left: 10px;
 }
